@@ -1,0 +1,32 @@
+<polymer-element name="web-font" attributes="family src">
+
+<script>
+	Polymer('web-font', {
+		created: function() {
+
+			this.src = this.attributes.src.value;
+			this.family = this.attributes.family.value;
+			if( typeof FontFace == "function"){
+				var font = new FontFace(this.family, "url("+ this.src +")", {});
+				font.load().then(function ( loaded ) {
+					document.fonts.add( loaded );
+				});
+			} else {
+				// load style font-face
+				// use polymer template instead?
+				var css = "@font-face { font-family: '"+ this.family +"'; src: local('"+ this.family +"') url("+ this.src +") format('woff'); }";
+				var style = document.createElement('style');
+				style.type = 'text/css';
+				if (style.styleSheet){
+					style.styleSheet.cssText = css;
+				} else {
+					style.appendChild(document.createTextNode(css));
+				}
+				document.getElementsByTagName('head')[0].appendChild(style);
+			}
+		}
+
+	});
+</script>
+
+</polymer-element>
