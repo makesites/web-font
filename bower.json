@@ -1,0 +1,27 @@
+{
+	"name": "web-font",
+	"version": "0.0.1",
+	"description": "A web component that creates an element to load web fonts",
+	"authors": [
+		"Makis Tracend <makis@makesit.es>"
+	],
+	"license": "MIT",
+	"keywords": [
+		"font",
+		"webfont",
+		"polymer",
+		"web-components"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/makesites/font.git"
+	},
+	"ignore": [
+		"bower_components",
+		"node_modules"
+	],
+	"dependencies": {
+		"platform": "Polymer/platform#~0.2.3",
+		"polymer": "Polymer/polymer#~0.2.3"
+	}
+}
